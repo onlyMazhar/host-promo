@@ -1,4 +1,4 @@
-﻿import type { Metadata } from 'next';
+import type { Metadata } from 'next';
 import { Poppins } from 'next/font/google';
 import './globals.css';
 import SmoothScrollProvider from '@/components/providers/SmoothScrollProvider';
@@ -30,8 +30,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${poppins.variable} scroll-smooth`}>
-      <body className="min-h-screen bg-white text-[#343B46] antialiased">
+    <html lang="en" className={`${poppins.variable} scroll-smooth`} suppressHydrationWarning>
+      <body className="min-h-screen bg-white text-[#343B46] antialiased" suppressHydrationWarning>
         <SmoothScrollProvider>{children}</SmoothScrollProvider>
       </body>
     </html>
