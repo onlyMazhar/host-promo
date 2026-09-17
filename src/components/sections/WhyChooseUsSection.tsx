@@ -51,9 +51,9 @@ export default function WhyChooseUsSection() {
             return (
               <div
                 key={idx}
-                className="custom-card p-8 bg-white border border-[#E5E7EB] rounded-[12px] flex flex-col items-start text-left"
+                className="custom-card p-8 bg-white border border-[#E5E7EB] rounded-xl flex flex-col items-start text-left"
               >
-                <div className={`w-14 h-14 ${pillar.bgColor} ${pillar.color} rounded-[12px] flex items-center justify-center mb-6 shadow-xs`}>
+                <div className={`w-14 h-14 ${pillar.bgColor} ${pillar.color} rounded-xl flex items-center justify-center mb-6 shadow-xs`}>
                   <Icon size={28} />
                 </div>
                 <h3 className="text-lg font-bold text-[#343B46] mb-2">{pillar.title}</h3>

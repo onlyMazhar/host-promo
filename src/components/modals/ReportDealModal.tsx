@@ -27,7 +27,7 @@ export default function ReportDealModal({ deal, onClose }: ReportDealModalProps)
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm animate-in fade-in duration-200">
-      <div className="relative w-full max-w-md bg-white rounded-[12px] p-6 shadow-2xl border border-[#E5E7EB]">
+      <div className="relative w-full max-w-md bg-white rounded-xl p-6 shadow-2xl border border-[#E5E7EB]">
         <button
           onClick={onClose}
           className="absolute top-4 right-4 p-2 text-[#9CA3AF] hover:text-[#343B46] hover:bg-[#F5F5F6] rounded-full transition-colors"
@@ -59,7 +59,7 @@ export default function ReportDealModal({ deal, onClose }: ReportDealModalProps)
               <select
                 value={reason}
                 onChange={(e) => setReason(e.target.value)}
-                className="w-full p-2.5 bg-[#F5F5F6] border border-[#E5E7EB] rounded-[12px] text-sm text-[#343B46] focus:outline-none focus:border-[#FF2B85]"
+                className="w-full p-2.5 bg-[#F5F5F6] border border-[#E5E7EB] rounded-xl text-sm text-[#343B46] focus:outline-none focus:border-[#FF2B85]"
               >
                 <option value="expired">Coupon or deal has expired</option>
                 <option value="wrong_code">Code is invalid or does not apply</option>
@@ -77,7 +77,7 @@ export default function ReportDealModal({ deal, onClose }: ReportDealModalProps)
                 value={comment}
                 onChange={(e) => setComment(e.target.value)}
                 placeholder="Briefly describe the issue..."
-                className="w-full p-2.5 bg-[#F5F5F6] border border-[#E5E7EB] rounded-[12px] text-sm text-[#343B46] placeholder:text-[#9CA3AF] focus:outline-none focus:border-[#FF2B85]"
+                className="w-full p-2.5 bg-[#F5F5F6] border border-[#E5E7EB] rounded-xl text-sm text-[#343B46] placeholder:text-[#9CA3AF] focus:outline-none focus:border-[#FF2B85]"
               />
             </div>
 

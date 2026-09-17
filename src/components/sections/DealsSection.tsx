@@ -71,7 +71,7 @@ export default function DealsSection({
           </div>
 
           {/* Sort Tabs */}
-          <div className="flex items-center p-1.5 bg-[#F5F5F6] border border-[#E5E7EB] rounded-[12px] overflow-x-auto shadow-xs">
+          <div className="flex items-center p-1.5 bg-[#F5F5F6] border border-[#E5E7EB] rounded-xl overflow-x-auto shadow-xs">
             <button
               onClick={() => setActiveSort('popular')}
               className={`flex items-center gap-1.5 px-3.5 py-1.5 rounded-[10px] text-xs font-bold transition-all whitespace-nowrap ${
@@ -130,7 +130,7 @@ export default function DealsSection({
               <button
                 key={cat.id}
                 onClick={() => setSelectedCategory(cat.slug)}
-                className={`flex items-center px-4 py-2.5 rounded-[12px] text-xs font-bold transition-all whitespace-nowrap border ${
+                className={`flex items-center px-4 py-2.5 rounded-xl text-xs font-bold transition-all whitespace-nowrap border ${
                   isActive
                     ? 'bg-gradient-to-r from-[#FF3D92] to-[#FF2B85] text-white border-[#FF2B85] shadow-md shadow-[#FF2B85]/20'
                     : 'bg-white/90 text-[#343B46] border-[#E5E7EB] hover:bg-white hover:border-[#343B46] shadow-xs'
@@ -155,7 +155,7 @@ export default function DealsSection({
             ))}
           </div>
         ) : (
-          <div className="text-center py-16 custom-card rounded-[12px]">
+          <div className="text-center py-16 custom-card rounded-xl">
             <SlidersHorizontal size={40} className="mx-auto text-[#9CA3AF] mb-3" />
             <h3 className="text-lg font-bold text-[#343B46]">No promo codes found</h3>
             <p className="text-xs text-[#9CA3AF] mt-1 max-w-sm mx-auto">

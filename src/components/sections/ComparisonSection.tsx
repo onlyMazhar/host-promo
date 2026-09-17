@@ -23,13 +23,13 @@ export default function ComparisonSection() {
           {COMPARISONS.map((comp) => (
             <div
               key={comp.id}
-              className="custom-card p-6 md:p-8 bg-white border border-[#E5E7EB] rounded-[12px] flex flex-col justify-between"
+              className="custom-card p-6 md:p-8 bg-white border border-[#E5E7EB] rounded-xl flex flex-col justify-between"
             >
               <div>
                 {/* VS Header */}
                 <div className="flex items-center justify-between gap-4 pb-6 border-b border-[#E5E7EB]">
                   <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-[12px] bg-[#343B46] text-white flex items-center justify-center font-bold text-xs shadow-sm">
+                    <div className="w-10 h-10 rounded-xl bg-[#343B46] text-white flex items-center justify-center font-bold text-xs shadow-sm">
                       {comp.company_a.name.slice(0, 2).toUpperCase()}
                     </div>
                     <div>
@@ -47,7 +47,7 @@ export default function ComparisonSection() {
                       <h4 className="font-extrabold text-base text-[#343B46]">{comp.company_b.name}</h4>
                       <span className="text-xs text-[#FFB800] font-bold">★ {comp.company_b.avg_rating}</span>
                     </div>
-                    <div className="w-10 h-10 rounded-[12px] bg-[#343B46] text-white flex items-center justify-center font-bold text-xs shadow-sm">
+                    <div className="w-10 h-10 rounded-xl bg-[#343B46] text-white flex items-center justify-center font-bold text-xs shadow-sm">
                       {comp.company_b.name.slice(0, 2).toUpperCase()}
                     </div>
                   </div>
@@ -83,7 +83,7 @@ export default function ComparisonSection() {
               <div className="pt-4 border-t border-[#E5E7EB]">
                 <a
                   href="#deals"
-                  className="w-full flex items-center justify-center gap-2 py-3 px-4 btn-secondary rounded-[12px] text-xs font-bold shadow-md hover:shadow-md"
+                  className="w-full flex items-center justify-center gap-2 py-3 px-4 btn-secondary rounded-xl text-xs font-bold shadow-md hover:shadow-md"
                 >
                   <span>Explore Both Deals & Coupons</span>
                   <ArrowRight size={14} />

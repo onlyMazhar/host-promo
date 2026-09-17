@@ -25,7 +25,7 @@ export default function CompaniesSection({ onOpenSubmitModal }: CompaniesSection
 
           <button
             onClick={onOpenSubmitModal}
-            className="self-start md:self-auto inline-flex items-center gap-1.5 py-3 px-5 btn-primary rounded-[12px] text-xs font-bold shadow-md hover:shadow-md"
+            className="self-start md:self-auto inline-flex items-center gap-1.5 py-3 px-5 btn-primary rounded-xl text-xs font-bold shadow-md hover:shadow-md"
           >
             <CirclePlus size={15} />
             <span>Register Your Company</span>
@@ -37,13 +37,13 @@ export default function CompaniesSection({ onOpenSubmitModal }: CompaniesSection
           {COMPANIES.map((company) => (
             <div
               key={company.id}
-              className="custom-card p-6 rounded-[12px] flex flex-col justify-between"
+              className="custom-card p-6 rounded-xl flex flex-col justify-between"
             >
               <div>
                 {/* Header info */}
                 <div className="flex items-start justify-between gap-3 mb-4">
                   <div className="flex items-center gap-3">
-                    <div className="w-12 h-12 rounded-[12px] bg-gradient-to-br from-white to-[#F5F5F6] border border-[#E5E7EB] flex items-center justify-center font-extrabold text-base text-[#343B46] shadow-xs">
+                    <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-white to-[#F5F5F6] border border-[#E5E7EB] flex items-center justify-center font-extrabold text-base text-[#343B46] shadow-xs">
                       {company.name.slice(0, 2).toUpperCase()}
                     </div>
                     <div>
@@ -71,7 +71,7 @@ export default function CompaniesSection({ onOpenSubmitModal }: CompaniesSection
                 </p>
 
                 {/* Sub-ratings: Uptime & Support side-by-side flexbox */}
-                <div className="flex items-center justify-between gap-4 py-3.5 px-4 bg-white/60 border border-[#E5E7EB]/80 rounded-[12px] mb-5">
+                <div className="flex items-center justify-between gap-4 py-3.5 px-4 bg-white/60 border border-[#E5E7EB]/80 rounded-xl mb-5">
                   <div className="space-y-0.5">
                     <span className="text-[11px] font-medium text-[#9CA3AF] block">Uptime & Reliability</span>
                     <span className="text-sm font-extrabold text-emerald-600">
@@ -108,9 +108,9 @@ export default function CompaniesSection({ onOpenSubmitModal }: CompaniesSection
         </div>
 
         {/* Directory Trust Banner */}
-        <div className="p-8 custom-card rounded-[12px] flex flex-col md:flex-row items-center justify-between gap-6">
+        <div className="p-8 custom-card rounded-xl flex flex-col md:flex-row items-center justify-between gap-6">
           <div className="flex items-center gap-4 text-left">
-            <div className="w-12 h-12 bg-emerald-50 text-emerald-600 rounded-[12px] border border-emerald-200/60 flex items-center justify-center flex-shrink-0 shadow-xs">
+            <div className="w-12 h-12 bg-emerald-50 text-emerald-600 rounded-xl border border-emerald-200/60 flex items-center justify-center flex-shrink-0 shadow-xs">
               <ShieldCheck size={24} />
             </div>
             <div>

@@ -43,7 +43,7 @@ export default function SubmitDealModal({ isOpen, onClose }: SubmitDealModalProp
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm animate-in fade-in duration-200">
-      <div className="relative w-full max-w-lg bg-white rounded-[12px] p-6 md:p-8 shadow-2xl border border-[#E5E7EB] max-h-[90vh] overflow-y-auto">
+      <div className="relative w-full max-w-lg bg-white rounded-xl p-6 md:p-8 shadow-2xl border border-[#E5E7EB] max-h-[90vh] overflow-y-auto">
         <button
           onClick={onClose}
           className="absolute top-4 right-4 p-2 text-[#9CA3AF] hover:text-[#343B46] hover:bg-[#F5F5F6] rounded-full transition-colors"
@@ -63,7 +63,7 @@ export default function SubmitDealModal({ isOpen, onClose }: SubmitDealModalProp
         ) : (
           <form onSubmit={handleSubmit} className="space-y-4">
             <div className="flex items-center gap-2.5 text-[#FF2B85]">
-              <div className="p-2 bg-[#FFF0F6] rounded-[12px]">
+              <div className="p-2 bg-[#FFF0F6] rounded-xl">
                 <Tag size={20} />
               </div>
               <div>
@@ -81,7 +81,7 @@ export default function SubmitDealModal({ isOpen, onClose }: SubmitDealModalProp
                   placeholder="e.g. Hostinger"
                   value={formData.company_name}
                   onChange={(e) => setFormData({ ...formData, company_name: e.target.value })}
-                  className="w-full p-2.5 bg-[#F5F5F6] border border-[#E5E7EB] rounded-[12px] text-sm text-[#343B46] focus:outline-none focus:border-[#FF2B85]"
+                  className="w-full p-2.5 bg-[#F5F5F6] border border-[#E5E7EB] rounded-xl text-sm text-[#343B46] focus:outline-none focus:border-[#FF2B85]"
                 />
               </div>
 
@@ -93,7 +93,7 @@ export default function SubmitDealModal({ isOpen, onClose }: SubmitDealModalProp
                   placeholder="name@example.com"
                   value={formData.contact_email}
                   onChange={(e) => setFormData({ ...formData, contact_email: e.target.value })}
-                  className="w-full p-2.5 bg-[#F5F5F6] border border-[#E5E7EB] rounded-[12px] text-sm text-[#343B46] focus:outline-none focus:border-[#FF2B85]"
+                  className="w-full p-2.5 bg-[#F5F5F6] border border-[#E5E7EB] rounded-xl text-sm text-[#343B46] focus:outline-none focus:border-[#FF2B85]"
                 />
               </div>
             </div>
@@ -104,7 +104,7 @@ export default function SubmitDealModal({ isOpen, onClose }: SubmitDealModalProp
                 <select
                   value={formData.category}
                   onChange={(e) => setFormData({ ...formData, category: e.target.value })}
-                  className="w-full p-2.5 bg-[#F5F5F6] border border-[#E5E7EB] rounded-[12px] text-sm text-[#343B46] focus:outline-none focus:border-[#FF2B85]"
+                  className="w-full p-2.5 bg-[#F5F5F6] border border-[#E5E7EB] rounded-xl text-sm text-[#343B46] focus:outline-none focus:border-[#FF2B85]"
                 >
                   {CATEGORIES.filter((c) => c.slug !== 'all').map((cat) => (
                     <option key={cat.id} value={cat.slug}>
@@ -121,7 +121,7 @@ export default function SubmitDealModal({ isOpen, onClose }: SubmitDealModalProp
                   placeholder="e.g. SAVE80"
                   value={formData.promo_code}
                   onChange={(e) => setFormData({ ...formData, promo_code: e.target.value })}
-                  className="w-full p-2.5 bg-[#F5F5F6] border border-[#E5E7EB] rounded-[12px] text-sm text-[#343B46] focus:outline-none focus:border-[#FF2B85] font-mono"
+                  className="w-full p-2.5 bg-[#F5F5F6] border border-[#E5E7EB] rounded-xl text-sm text-[#343B46] focus:outline-none focus:border-[#FF2B85] font-mono"
                 />
               </div>
             </div>
@@ -134,7 +134,7 @@ export default function SubmitDealModal({ isOpen, onClose }: SubmitDealModalProp
                 placeholder="https://company.com/deal"
                 value={formData.deal_url}
                 onChange={(e) => setFormData({ ...formData, deal_url: e.target.value })}
-                className="w-full p-2.5 bg-[#F5F5F6] border border-[#E5E7EB] rounded-[12px] text-sm text-[#343B46] focus:outline-none focus:border-[#FF2B85]"
+                className="w-full p-2.5 bg-[#F5F5F6] border border-[#E5E7EB] rounded-xl text-sm text-[#343B46] focus:outline-none focus:border-[#FF2B85]"
               />
             </div>
 
@@ -146,7 +146,7 @@ export default function SubmitDealModal({ isOpen, onClose }: SubmitDealModalProp
                 placeholder="e.g. 75% off first year + free domain name on annual plans..."
                 value={formData.short_description}
                 onChange={(e) => setFormData({ ...formData, short_description: e.target.value })}
-                className="w-full p-2.5 bg-[#F5F5F6] border border-[#E5E7EB] rounded-[12px] text-sm text-[#343B46] focus:outline-none focus:border-[#FF2B85]"
+                className="w-full p-2.5 bg-[#F5F5F6] border border-[#E5E7EB] rounded-xl text-sm text-[#343B46] focus:outline-none focus:border-[#FF2B85]"
               />
             </div>
 

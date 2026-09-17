@@ -50,7 +50,7 @@ export default function DealCard({ deal, onCopyCode, onReportDeal }: DealCardPro
       <div>
         <div className="flex items-start justify-between gap-3 mb-3.5">
           <div className="flex items-center gap-3">
-            <div className="w-11 h-11 rounded-[12px] bg-gradient-to-br from-white to-[#F5F5F6] border border-[#E5E7EB] flex items-center justify-center font-extrabold text-sm text-[#343B46] shadow-xs overflow-hidden flex-shrink-0">
+            <div className="w-11 h-11 rounded-xl bg-gradient-to-br from-white to-[#F5F5F6] border border-[#E5E7EB] flex items-center justify-center font-extrabold text-sm text-[#343B46] shadow-xs overflow-hidden flex-shrink-0">
               {deal.company.name.slice(0, 2).toUpperCase()}
             </div>
             <div>
@@ -110,7 +110,7 @@ export default function DealCard({ deal, onCopyCode, onReportDeal }: DealCardPro
           {deal.promo_code ? (
             <button
               onClick={handleCopy}
-              className={`flex items-center justify-center gap-1.5 py-2.5 px-3 rounded-[12px] text-xs font-bold transition-all shadow-md active:shadow-xs border ${
+              className={`flex items-center justify-center gap-1.5 py-2.5 px-3 rounded-xl text-xs font-bold transition-all shadow-md active:shadow-xs border ${
                 copied
                   ? 'bg-emerald-600 text-white border-emerald-600'
                   : 'bg-white/90 hover:bg-white text-[#FF2B85] border-[#FF2B85] shadow-xs'
@@ -131,7 +131,7 @@ export default function DealCard({ deal, onCopyCode, onReportDeal }: DealCardPro
           ) : (
             <button
               onClick={handleGetDeal}
-              className="flex items-center justify-center gap-1.5 py-2.5 px-3 rounded-[12px] text-xs font-bold btn-secondary shadow-md hover:shadow-md"
+              className="flex items-center justify-center gap-1.5 py-2.5 px-3 rounded-xl text-xs font-bold btn-secondary shadow-md hover:shadow-md"
             >
               <Sparkles size={14} className="text-[#FF2B85]" />
               <span>Direct Deal</span>
@@ -140,7 +140,7 @@ export default function DealCard({ deal, onCopyCode, onReportDeal }: DealCardPro
 
           <button
             onClick={handleGetDeal}
-            className="flex items-center justify-center gap-1.5 py-2.5 px-3 btn-primary rounded-[12px] text-xs font-bold shadow-md hover:shadow-md"
+            className="flex items-center justify-center gap-1.5 py-2.5 px-3 btn-primary rounded-xl text-xs font-bold shadow-md hover:shadow-md"
           >
             <span>Get Deal</span>
             <ExternalLink size={13} />

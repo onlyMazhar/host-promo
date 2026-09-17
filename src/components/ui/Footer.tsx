@@ -12,7 +12,7 @@ export default function Footer() {
           {/* Column 1: Brand Info */}
           <div className="lg:col-span-2 space-y-4">
             <a href="#" className="flex items-center gap-2.5">
-              <div className="w-9 h-9 rounded-[12px] bg-[#FF2B85] text-white flex items-center justify-center font-extrabold shadow-md">
+              <div className="w-9 h-9 rounded-xl bg-[#FF2B85] text-white flex items-center justify-center font-extrabold shadow-md">
                 <Tag size={18} className="transform -rotate-12" />
               </div>
               <span className="text-xl font-extrabold tracking-tight text-[#343B46]">

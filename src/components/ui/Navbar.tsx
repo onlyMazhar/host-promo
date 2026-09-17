@@ -31,7 +31,7 @@ export default function Navbar({ onOpenSubmitModal, onSearchClick }: NavbarProps
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
         {/* Brand Logo */}
         <a href="#" className="flex items-center gap-2.5 group">
-          <div className="w-10 h-10 rounded-[12px] bg-gradient-to-b from-[#FF3D92] via-[#FF2B85] to-[#E01E71] text-white flex items-center justify-center font-extrabold shadow-md border border-white/30 group-hover:scale-105 transition-transform">
+          <div className="w-10 h-10 rounded-xl bg-gradient-to-b from-[#FF3D92] via-[#FF2B85] to-[#E01E71] text-white flex items-center justify-center font-extrabold shadow-md border border-white/30 group-hover:scale-105 transition-transform">
             <Tag size={20} className="transform -rotate-12" />
           </div>
           <div className="flex flex-col">
@@ -64,7 +64,7 @@ export default function Navbar({ onOpenSubmitModal, onSearchClick }: NavbarProps
         <div className="hidden md:flex items-center gap-3.5">
           <button
             onClick={onSearchClick}
-            className="flex items-center gap-2 px-3.5 py-2 text-xs font-medium text-[#9CA3AF] bg-white/70 hover:bg-white rounded-[12px] border border-[#E5E7EB] shadow-xs backdrop-blur-sm transition-all"
+            className="flex items-center gap-2 px-3.5 py-2 text-xs font-medium text-[#9CA3AF] bg-white/70 hover:bg-white rounded-xl border border-[#E5E7EB] shadow-xs backdrop-blur-sm transition-all"
           >
             <Search size={14} className="text-[#343B46]" />
             <span>Search promo codes...</span>
@@ -86,14 +86,14 @@ export default function Navbar({ onOpenSubmitModal, onSearchClick }: NavbarProps
         <div className="flex md:hidden items-center gap-2">
           <button
             onClick={onOpenSubmitModal}
-            className="p-2 text-[#FF2B85] bg-[#FFF0F6] rounded-[12px]"
+            className="p-2 text-[#FF2B85] bg-[#FFF0F6] rounded-xl"
             title="Submit Deal"
           >
             <CirclePlus size={20} />
           </button>
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="p-2 text-[#343B46] hover:bg-[#F5F5F6] rounded-[12px] transition-colors"
+            className="p-2 text-[#343B46] hover:bg-[#F5F5F6] rounded-xl transition-colors"
           >
             {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>

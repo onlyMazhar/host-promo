@@ -35,7 +35,7 @@ export default function HeroSection({
 
         {/* Main Search Bar (Input width 75%) */}
         <div className="w-full max-w-3xl mx-auto mb-8">
-          <div className="relative flex items-center bg-white/95 backdrop-blur-md border border-[#E5E7EB] hover:border-[#343B46] focus-within:border-[#FF2B85] rounded-[12px] p-2 shadow-lg shadow-black/5 transition-all">
+          <div className="relative flex items-center bg-white/95 backdrop-blur-md border border-[#E5E7EB] hover:border-[#343B46] focus-within:border-[#FF2B85] rounded-xl p-2 shadow-lg shadow-black/5 transition-all">
             <div className="pl-3 pr-2 text-[#9CA3AF]">
               <Search size={22} className="text-[#343B46]" />
             </div>
@@ -58,7 +58,7 @@ export default function HeroSection({
               ) : (
                 <a
                   href="#deals"
-                  className="hidden sm:inline-flex items-center gap-1 py-2.5 px-5 btn-primary rounded-[12px] text-xs font-bold shadow-md hover:shadow-md"
+                  className="hidden sm:inline-flex items-center gap-1 py-2.5 px-5 btn-primary rounded-xl text-xs font-bold shadow-md hover:shadow-md"
                 >
                   <span>Find Deals</span>
                   <ArrowRight size={14} />

@@ -18,7 +18,7 @@ export default function NewsletterSection() {
   return (
     <section className="py-[120px] bg-white border-b border-[#E5E7EB]">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="relative overflow-hidden p-8 sm:p-12 md:p-16 bg-[#343B46] text-white rounded-[12px] shadow-2xl">
+        <div className="relative overflow-hidden p-8 sm:p-12 md:p-16 bg-[#343B46] text-white rounded-xl shadow-2xl">
           {/* Accent decoration */}
           <div className="absolute top-0 right-0 w-96 h-96 bg-[#FF2B85]/20 rounded-full blur-3xl pointer-events-none -mr-20 -mt-20" />
 
@@ -32,7 +32,7 @@ export default function NewsletterSection() {
             </p>
 
             {subscribed ? (
-              <div className="p-4 bg-white/10 border border-white/20 rounded-[12px] flex items-center justify-center gap-3 text-emerald-400">
+              <div className="p-4 bg-white/10 border border-white/20 rounded-xl flex items-center justify-center gap-3 text-emerald-400">
                 <CircleCheck size={24} />
                 <span className="text-sm font-bold text-white">
                   Thanks for subscribing! Check your inbox for confirmation.
@@ -50,12 +50,12 @@ export default function NewsletterSection() {
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     placeholder="Enter your email address..."
-                    className="w-full pl-10 pr-4 py-3.5 bg-white text-[#343B46] rounded-[12px] text-sm placeholder:text-[#9CA3AF] focus:outline-none focus:ring-2 focus:ring-[#FF2B85]"
+                    className="w-full pl-10 pr-4 py-3.5 bg-white text-[#343B46] rounded-xl text-sm placeholder:text-[#9CA3AF] focus:outline-none focus:ring-2 focus:ring-[#FF2B85]"
                   />
                 </div>
                 <button
                   type="submit"
-                  className="flex items-center justify-center gap-2 py-3.5 px-6 btn-primary rounded-[12px] text-sm font-bold whitespace-nowrap shadow-md hover:shadow-md"
+                  className="flex items-center justify-center gap-2 py-3.5 px-6 btn-primary rounded-xl text-sm font-bold whitespace-nowrap shadow-md hover:shadow-md"
                 >
                   <span>Subscribe</span>
                   <Send size={15} />
