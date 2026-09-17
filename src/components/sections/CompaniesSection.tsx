@@ -11,14 +11,14 @@ interface CompaniesSectionProps {
 export default function CompaniesSection({ onOpenSubmitModal }: CompaniesSectionProps) {
   return (
     <section id="companies" className="py-[120px] bg-[#F5F5F6] border-b border-[#E5E7EB]">
-      <div className="max-w-400 mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
           <div>
-            {/* <div className="inline-flex items-center gap-1.5 px-3 py-1 bg-white text-[#FF2B85] text-xs font-bold rounded-full mb-3 border border-[#E5E7EB] shadow-xs">
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 bg-white/90 text-[#FF2B85] text-xs font-bold rounded-full mb-3 border border-[#E5E7EB] shadow-xs backdrop-blur-xs">
               <Building2 size={13} />
               <span>Hosting Company Directory</span>
-            </div> */}
+            </div>
             <h2 className="text-3xl sm:text-4xl font-extrabold text-[#343B46] tracking-tight">
               Top Rated Hosting Providers
             </h2>
@@ -41,13 +41,13 @@ export default function CompaniesSection({ onOpenSubmitModal }: CompaniesSection
           {COMPANIES.map((company) => (
             <div
               key={company.id}
-              className="custom-card p-6 bg-white border border-[#E5E7EB] rounded-[12px] flex flex-col justify-between"
+              className="custom-card p-6 rounded-[12px] flex flex-col justify-between"
             >
               <div>
                 {/* Header info */}
                 <div className="flex items-start justify-between gap-3 mb-4">
                   <div className="flex items-center gap-3">
-                    <div className="w-12 h-12 rounded-[12px] bg-[#F5F5F6] border border-[#E5E7EB] flex items-center justify-center font-extrabold text-base text-[#343B46] shadow-xs">
+                    <div className="w-12 h-12 rounded-[12px] bg-gradient-to-br from-white to-[#F5F5F6] border border-[#E5E7EB] flex items-center justify-center font-extrabold text-base text-[#343B46] shadow-xs">
                       {company.name.slice(0, 2).toUpperCase()}
                     </div>
                     <div>
@@ -73,12 +73,12 @@ export default function CompaniesSection({ onOpenSubmitModal }: CompaniesSection
                 </p>
 
                 {/* Sub-ratings Breakdown Progress */}
-                <div className="space-y-2 py-3 border-y border-[#E5E7EB] mb-5">
+                <div className="space-y-2 py-3 border-y border-[#E5E7EB]/80 mb-5">
                   <div className="flex items-center justify-between text-xs">
                     <span className="text-[#9CA3AF] font-medium">Uptime & Reliability</span>
                     <span className="font-bold text-[#343B46]">{company.ratings_breakdown.uptime} / 5</span>
                   </div>
-                  <div className="w-full h-1.5 bg-[#F5F5F6] rounded-full overflow-hidden">
+                  <div className="w-full h-1.5 bg-[#E5E7EB]/60 rounded-full overflow-hidden">
                     <div
                       className="h-full bg-emerald-500 rounded-full"
                       style={{ width: `${(company.ratings_breakdown.uptime / 5) * 100}%` }}
@@ -89,9 +89,9 @@ export default function CompaniesSection({ onOpenSubmitModal }: CompaniesSection
                     <span className="text-[#9CA3AF] font-medium">Support Quality</span>
                     <span className="font-bold text-[#343B46]">{company.ratings_breakdown.support} / 5</span>
                   </div>
-                  <div className="w-full h-1.5 bg-[#F5F5F6] rounded-full overflow-hidden">
+                  <div className="w-full h-1.5 bg-[#E5E7EB]/60 rounded-full overflow-hidden">
                     <div
-                      className="h-full bg-[#FF2B85] rounded-full"
+                      className="h-full bg-gradient-to-r from-[#FF3D92] to-[#FF2B85] rounded-full"
                       style={{ width: `${(company.ratings_breakdown.support / 5) * 100}%` }}
                     />
                   </div>
@@ -100,7 +100,7 @@ export default function CompaniesSection({ onOpenSubmitModal }: CompaniesSection
 
               {/* Bottom Action Strip */}
               <div className="flex items-center justify-between pt-1">
-                <span className="text-xs font-bold text-[#FF2B85] bg-[#FFF0F6] px-2.5 py-1 rounded-full">
+                <span className="text-xs font-bold text-[#FF2B85] bg-gradient-to-r from-[#FFF0F6] to-[#FFE4EF] border border-[#FF2B85]/20 px-2.5 py-1 rounded-full shadow-xs">
                   {company.deal_count} Active Deals
                 </span>
                 <a
@@ -116,9 +116,9 @@ export default function CompaniesSection({ onOpenSubmitModal }: CompaniesSection
         </div>
 
         {/* Directory Trust Banner */}
-        <div className="p-8 bg-white border border-[#E5E7EB] rounded-[12px] shadow-sm flex flex-col md:flex-row items-center justify-between gap-6">
+        <div className="p-8 custom-card rounded-[12px] flex flex-col md:flex-row items-center justify-between gap-6">
           <div className="flex items-center gap-4 text-left">
-            <div className="w-12 h-12 bg-emerald-50 text-emerald-600 rounded-[12px] flex items-center justify-center flex-shrink-0">
+            <div className="w-12 h-12 bg-emerald-50 text-emerald-600 rounded-[12px] border border-emerald-200/60 flex items-center justify-center flex-shrink-0 shadow-xs">
               <ShieldCheck size={24} />
             </div>
             <div>

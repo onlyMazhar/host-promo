@@ -45,12 +45,12 @@ export default function DealCard({ deal, onCopyCode, onReportDeal }: DealCardPro
   };
 
   return (
-    <div className="custom-card p-5 md:p-6 flex flex-col justify-between relative group border border-[#E5E7EB] bg-white">
+    <div className="custom-card p-5 md:p-6 flex flex-col justify-between relative group">
       {/* Top Header: Company Info + Verified Badge */}
       <div>
         <div className="flex items-start justify-between gap-3 mb-3.5">
           <div className="flex items-center gap-3">
-            <div className="w-11 h-11 rounded-[12px] bg-[#F5F5F6] border border-[#E5E7EB] flex items-center justify-center font-bold text-sm text-[#343B46] shadow-xs overflow-hidden flex-shrink-0">
+            <div className="w-11 h-11 rounded-[12px] bg-gradient-to-br from-white to-[#F5F5F6] border border-[#E5E7EB] flex items-center justify-center font-extrabold text-sm text-[#343B46] shadow-xs overflow-hidden flex-shrink-0">
               {deal.company.name.slice(0, 2).toUpperCase()}
             </div>
             <div>
@@ -67,7 +67,7 @@ export default function DealCard({ deal, onCopyCode, onReportDeal }: DealCardPro
 
           {/* Verified Badge */}
           {deal.is_verified && (
-            <div className="inline-flex items-center gap-1 px-2.5 py-1 bg-emerald-50 text-emerald-700 border border-emerald-200 rounded-full text-[11px] font-bold shadow-xs">
+            <div className="inline-flex items-center gap-1 px-2.5 py-1 bg-emerald-50/90 text-emerald-700 border border-emerald-200/80 rounded-full text-[11px] font-bold shadow-xs backdrop-blur-xs">
               <ShieldCheck size={13} />
               <span>Verified</span>
             </div>
@@ -76,19 +76,19 @@ export default function DealCard({ deal, onCopyCode, onReportDeal }: DealCardPro
 
         {/* Badges strip: Category & Discount Highlight */}
         <div className="flex items-center flex-wrap gap-2 mb-3">
-          <span className="inline-flex items-center px-2.5 py-0.5 bg-[#FFF0F6] text-[#FF2B85] font-extrabold text-xs rounded-full border border-[#FF2B85]/20">
+          <span className="inline-flex items-center px-2.5 py-0.5 bg-gradient-to-r from-[#FFF0F6] to-[#FFE4EF] text-[#FF2B85] font-extrabold text-xs rounded-full border border-[#FF2B85]/25 shadow-xs">
             {deal.discount_label}
           </span>
-          <span className="px-2 py-0.5 bg-[#F5F5F6] text-[#343B46] text-xs font-medium rounded-full border border-[#E5E7EB]">
+          <span className="px-2 py-0.5 bg-white/80 text-[#343B46] text-xs font-medium rounded-full border border-[#E5E7EB] shadow-xs">
             {deal.category_name}
           </span>
           {deal.deal_type === 'promo_code' && (
-            <span className="px-2 py-0.5 bg-amber-50 text-amber-700 text-xs font-medium rounded-full border border-amber-200">
+            <span className="px-2 py-0.5 bg-amber-50/90 text-amber-700 text-xs font-medium rounded-full border border-amber-200 shadow-xs">
               Promo Code
             </span>
           )}
           {deal.deal_type === 'free_trial' && (
-            <span className="px-2 py-0.5 bg-blue-50 text-blue-700 text-xs font-medium rounded-full border border-blue-200">
+            <span className="px-2 py-0.5 bg-blue-50/90 text-blue-700 text-xs font-medium rounded-full border border-blue-200 shadow-xs">
               Free Trial
             </span>
           )}
@@ -113,7 +113,7 @@ export default function DealCard({ deal, onCopyCode, onReportDeal }: DealCardPro
               className={`flex items-center justify-center gap-1.5 py-2.5 px-3 rounded-[12px] text-xs font-bold transition-all shadow-md active:shadow-xs border ${
                 copied
                   ? 'bg-emerald-600 text-white border-emerald-600'
-                  : 'bg-white hover:bg-[#F5F5F6] text-[#FF2B85] border-[#FF2B85]'
+                  : 'bg-white/90 hover:bg-white text-[#FF2B85] border-[#FF2B85] shadow-xs'
               }`}
             >
               {copied ? (
