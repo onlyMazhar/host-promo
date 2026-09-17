@@ -4,8 +4,8 @@ export interface Category {
   id: number;
   name: string;
   slug: string;
-  icon: string;
-  count: number;
+  icon?: string;
+  count?: number;
 }
 
 export interface Company {
@@ -19,15 +19,16 @@ export interface Company {
   headquarters?: string;
   employee_count?: string;
   avg_rating: number;
-  review_count: number;
-  deal_count: number;
+  review_count?: number;
+  deal_count?: number;
   categories: string[];
   ratings_breakdown: {
     uptime: number;
+    uptime_percentage?: string;
     support: number;
-    value: number;
-    ease: number;
-    migration: number;
+    value?: number;
+    ease?: number;
+    migration?: number;
   };
 }
 
@@ -39,7 +40,7 @@ export interface Deal {
     slug: string;
     logo: string;
     avg_rating: number;
-    review_count: number;
+    review_count?: number;
   };
   category_id: number;
   category_slug: string;
@@ -59,9 +60,9 @@ export interface Deal {
   is_featured: boolean;
   is_verified: boolean;
   last_verified_at: string;
-  click_count: number;
-  copy_count: number;
-  report_count: number;
+  click_count?: number;
+  copy_count?: number;
+  report_count?: number;
   created_at: string;
 }
 

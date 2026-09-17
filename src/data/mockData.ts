@@ -1,13 +1,13 @@
-﻿import { Category, Company, Deal, CompanyComparison } from '@/types';
+import { Category, Company, Deal, CompanyComparison } from '@/types';
 
 export const CATEGORIES: Category[] = [
-  { id: 1, name: 'All Deals', slug: 'all', icon: '⚡', count: 142 },
-  { id: 2, name: 'Web Hosting', slug: 'web-hosting', icon: '🌐', count: 54 },
-  { id: 3, name: 'VPS Server', slug: 'vps-server', icon: '🖥️', count: 38 },
-  { id: 4, name: 'Dedicated Server', slug: 'dedicated-server', icon: '🔧', count: 19 },
-  { id: 5, name: 'Domain Registration', slug: 'domain-registration', icon: '🔗', count: 24 },
-  { id: 6, name: 'SSL Certificates', slug: 'ssl-certificates', icon: '🔒', count: 12 },
-  { id: 7, name: 'Email Hosting', slug: 'email-hosting', icon: '📧', count: 15 },
+  { id: 1, name: 'All Deals', slug: 'all' },
+  { id: 2, name: 'Web Hosting', slug: 'web-hosting' },
+  { id: 3, name: 'VPS Server', slug: 'vps-server' },
+  { id: 4, name: 'Dedicated Server', slug: 'dedicated-server' },
+  { id: 5, name: 'Domain Registration', slug: 'domain-registration' },
+  { id: 6, name: 'SSL Certificates', slug: 'ssl-certificates' },
+  { id: 7, name: 'Email Hosting', slug: 'email-hosting' },
 ];
 
 export const COMPANIES: Company[] = [
@@ -25,7 +25,7 @@ export const COMPANIES: Company[] = [
     review_count: 1420,
     deal_count: 6,
     categories: ['web-hosting', 'vps-server', 'email-hosting'],
-    ratings_breakdown: { uptime: 4.9, support: 4.7, value: 4.9, ease: 4.8, migration: 4.6 },
+    ratings_breakdown: { uptime: 4.9, uptime_percentage: '99.9%', support: 4.7, value: 4.9, ease: 4.8, migration: 4.6 },
   },
   {
     id: 2,
@@ -41,7 +41,7 @@ export const COMPANIES: Company[] = [
     review_count: 890,
     deal_count: 4,
     categories: ['vps-server', 'dedicated-server'],
-    ratings_breakdown: { uptime: 4.9, support: 4.4, value: 4.8, ease: 4.6, migration: 4.5 },
+    ratings_breakdown: { uptime: 4.9, uptime_percentage: '99.9%', support: 4.4, value: 4.8, ease: 4.6, migration: 4.5 },
   },
   {
     id: 3,
@@ -57,7 +57,7 @@ export const COMPANIES: Company[] = [
     review_count: 2100,
     deal_count: 8,
     categories: ['domain-registration', 'web-hosting', 'ssl-certificates'],
-    ratings_breakdown: { uptime: 4.5, support: 4.6, value: 4.8, ease: 4.5, migration: 4.3 },
+    ratings_breakdown: { uptime: 4.5, uptime_percentage: '99.8%', support: 4.6, value: 4.8, ease: 4.5, migration: 4.3 },
   },
   {
     id: 4,
@@ -73,7 +73,7 @@ export const COMPANIES: Company[] = [
     review_count: 650,
     deal_count: 3,
     categories: ['web-hosting', 'vps-server'],
-    ratings_breakdown: { uptime: 4.9, support: 4.9, value: 4.7, ease: 4.8, migration: 4.9 },
+    ratings_breakdown: { uptime: 4.9, uptime_percentage: '99.9%', support: 4.9, value: 4.7, ease: 4.8, migration: 4.9 },
   },
   {
     id: 5,
@@ -89,7 +89,7 @@ export const COMPANIES: Company[] = [
     review_count: 1140,
     deal_count: 4,
     categories: ['vps-server', 'dedicated-server'],
-    ratings_breakdown: { uptime: 5.0, support: 4.5, value: 5.0, ease: 4.3, migration: 4.2 },
+    ratings_breakdown: { uptime: 5.0, uptime_percentage: '99.9%', support: 4.5, value: 5.0, ease: 4.3, migration: 4.2 },
   },
   {
     id: 6,
@@ -105,7 +105,7 @@ export const COMPANIES: Company[] = [
     review_count: 980,
     deal_count: 5,
     categories: ['web-hosting', 'email-hosting', 'ssl-certificates'],
-    ratings_breakdown: { uptime: 4.8, support: 4.9, value: 4.4, ease: 4.9, migration: 4.8 },
+    ratings_breakdown: { uptime: 4.8, uptime_percentage: '99.8%', support: 4.9, value: 4.4, ease: 4.9, migration: 4.8 },
   },
 ];
 
@@ -155,15 +155,15 @@ export const DEALS: Deal[] = [
     category_id: 3,
     category_slug: 'vps-server',
     category_name: 'VPS Server',
-    title: ' Free Cloud Credits for 60 Days',
+    title: '$200 Free Cloud Credits for 60 Days',
     slug: 'digitalocean-200-free-credits',
-    short_description: 'Deploy NVMe SSD Droplets, Kubernetes clusters, and Managed Databases with  free trial credits.',
+    short_description: 'Deploy NVMe SSD Droplets, Kubernetes clusters, and Managed Databases with $200 free trial credits.',
     promo_code: null,
     affiliate_url: 'https://digitalocean.com?trial=200',
     deal_type: 'free_trial',
     discount_value: 200,
     discount_unit: '$',
-    discount_label: ' FREE',
+    discount_label: '$200 FREE',
     expires_at: '2026-12-31',
     is_active: true,
     is_featured: true,
@@ -219,7 +219,7 @@ export const DEALS: Deal[] = [
     category_id: 5,
     category_slug: 'domain-registration',
     category_name: 'Domain Registration',
-    title: '.COM Domains for Just .98 (First Year)',
+    title: '.COM Domains for Just $5.98 (First Year)',
     slug: 'namecheap-com-domain-discount',
     short_description: 'Register your .COM domain with free lifelong privacy protection, DNSSEC, and 24/7 live support.',
     promo_code: 'NEWCOM598',

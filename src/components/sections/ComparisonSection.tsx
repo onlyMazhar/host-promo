@@ -1,19 +1,15 @@
-﻿'use client';
+'use client';
 
 import React from 'react';
-import { Columns3, ArrowRight } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import { COMPARISONS } from '@/data/mockData';
 
 export default function ComparisonSection() {
   return (
     <section id="compare" className="py-[120px] bg-white border-b border-[#E5E7EB]">
-      <div className="max-w-400 mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Section Header */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Section Header (Badge removed) */}
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 bg-[#FFF0F6] text-[#FF2B85] text-xs font-bold rounded-full mb-3 shadow-xs">
-            <Columns3 size={13} />
-            <span>Head-to-Head Comparisons</span>
-          </div>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-[#343B46] tracking-tight mb-4">
             Compare Top Hosting Services
           </h2>
@@ -67,16 +63,18 @@ export default function ComparisonSection() {
                 {/* Feature Comparison Rows */}
                 <div className="space-y-2.5 py-4 border-t border-[#E5E7EB] text-xs">
                   <div className="flex items-center justify-between text-[#343B46]">
-                    <span className="font-medium text-[#9CA3AF]">Uptime Rating</span>
-                    <span className="font-bold">{comp.company_a.ratings_breakdown.uptime} vs {comp.company_b.ratings_breakdown.uptime}</span>
+                    <span className="font-medium text-[#9CA3AF]">Uptime & Reliability</span>
+                    <span className="font-bold text-emerald-600">
+                      {comp.company_a.ratings_breakdown.uptime_percentage || '99.9%'} vs {comp.company_b.ratings_breakdown.uptime_percentage || '99.8%'}
+                    </span>
                   </div>
                   <div className="flex items-center justify-between text-[#343B46]">
                     <span className="font-medium text-[#9CA3AF]">Support Score</span>
-                    <span className="font-bold">{comp.company_a.ratings_breakdown.support} vs {comp.company_b.ratings_breakdown.support}</span>
+                    <span className="font-bold">{comp.company_a.ratings_breakdown.support.toFixed(1)} vs {comp.company_b.ratings_breakdown.support.toFixed(1)}</span>
                   </div>
                   <div className="flex items-center justify-between text-[#343B46]">
                     <span className="font-medium text-[#9CA3AF]">Active Promo Deals</span>
-                    <span className="font-bold text-[#FF2B85]">{comp.company_a.deal_count} vs {comp.company_b.deal_count}</span>
+                    <span className="font-bold text-[#FF2B85]">{comp.company_a.deal_count || 0} vs {comp.company_b.deal_count || 0}</span>
                   </div>
                 </div>
               </div>

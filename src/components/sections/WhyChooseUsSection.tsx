@@ -1,7 +1,7 @@
-﻿'use client';
+'use client';
 
 import React from 'react';
-import { ShieldCheck, Zap, Users, Sparkles } from 'lucide-react';
+import { ShieldCheck, Zap, Users } from 'lucide-react';
 
 export default function WhyChooseUsSection() {
   const pillars = [
@@ -33,13 +33,9 @@ export default function WhyChooseUsSection() {
 
   return (
     <section id="why-us" className="py-[120px] bg-[#F5F5F6] border-b border-[#E5E7EB]">
-      <div className="max-w-400 mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Section Header */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Section Header (Badge removed) */}
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 bg-white text-[#FF2B85] text-xs font-bold rounded-full mb-3 border border-[#E5E7EB] shadow-xs">
-            <Sparkles size={13} />
-            <span>Why HostPromo</span>
-          </div>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-[#343B46] tracking-tight mb-4">
             The Most Reliable Hosting Coupon Platform
           </h2>

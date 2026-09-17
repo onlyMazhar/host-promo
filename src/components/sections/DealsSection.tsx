@@ -1,7 +1,7 @@
-﻿'use client';
+'use client';
 
 import React, { useState, useMemo } from 'react';
-import { Tag, Sparkles, Flame, Clock, MousePointerClick, SlidersHorizontal, BadgeCheck } from 'lucide-react';
+import { Sparkles, Flame, Clock, MousePointerClick, SlidersHorizontal } from 'lucide-react';
 import { CATEGORIES, DEALS } from '@/data/mockData';
 import { Deal } from '@/types';
 import DealCard from '@/components/ui/DealCard';
@@ -46,29 +46,24 @@ export default function DealsSection({
         return new Date(b.created_at).getTime() - new Date(a.created_at).getTime();
       }
       if (activeSort === 'clicked') {
-        return b.click_count - a.click_count;
+        return (b.click_count || 0) - (a.click_count || 0);
       }
       if (activeSort === 'expiring') {
         return (new Date(a.expires_at || '2099-01-01').getTime()) - (new Date(b.expires_at || '2099-01-01').getTime());
       }
       // default: popular (copy_count + click_count)
-      return (b.copy_count + b.click_count) - (a.copy_count + a.click_count);
+      return ((b.copy_count || 0) + (b.click_count || 0)) - ((a.copy_count || 0) + (a.click_count || 0));
     });
   }, [searchQuery, selectedCategory, activeSort]);
 
   return (
     <section id="deals" className="py-[120px] bg-white border-b border-[#E5E7EB]">
-      <div className="max-w-400 mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10">
           <div>
-            {/* <div className="inline-flex items-center gap-1.5 px-3 py-1 bg-[#FFF0F6] text-[#FF2B85] text-xs font-bold rounded-full mb-3">
-              <Tag size={13} />
-              <span>Exclusive Verified Discounts</span>
-            </div> */}
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-[#343B46] tracking-tight flex items-center gap-3">
-             <BadgeCheck size={36} color='#FF2B85'/> Verified Discounts 
-             {/* Hosting Promo Codes */}
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-[#343B46] tracking-tight">
+              Featured Hosting Promo Codes
             </h2>
             <p className="text-sm text-[#9CA3AF] mt-1">
               Showing {filteredDeals.length} deals ready to use today. Click to copy or claim directly.
@@ -76,7 +71,7 @@ export default function DealsSection({
           </div>
 
           {/* Sort Tabs */}
-          <div className="flex items-center p-1.5 bg-[#F5F5F6] border border-[#E5E7EB] rounded-[12px] overflow-x-auto">
+          <div className="flex items-center p-1.5 bg-[#F5F5F6] border border-[#E5E7EB] rounded-[12px] overflow-x-auto shadow-xs">
             <button
               onClick={() => setActiveSort('popular')}
               className={`flex items-center gap-1.5 px-3.5 py-1.5 rounded-[10px] text-xs font-bold transition-all whitespace-nowrap ${
@@ -127,7 +122,7 @@ export default function DealsSection({
           </div>
         </div>
 
-        {/* Category Filter Horizontal Strip */}
+        {/* Category Filter Horizontal Strip (Clean without numbers) */}
         <div className="flex items-center gap-2.5 pb-6 overflow-x-auto no-scrollbar mb-8">
           {CATEGORIES.map((cat) => {
             const isActive = selectedCategory === cat.slug;
@@ -135,21 +130,13 @@ export default function DealsSection({
               <button
                 key={cat.id}
                 onClick={() => setSelectedCategory(cat.slug)}
-                className={`flex items-center gap-2 px-4 py-2.5 rounded-[12px] text-xs font-bold transition-all whitespace-nowrap border ${
+                className={`flex items-center px-4 py-2.5 rounded-[12px] text-xs font-bold transition-all whitespace-nowrap border ${
                   isActive
-                    ? 'bg-[#FF2B85] text-white border-[#FF2B85] shadow-md shadow-[#FF2B85]/20'
-                    : 'bg-[#F5F5F6] text-[#343B46] border-[#E5E7EB] hover:bg-white hover:border-[#343B46]'
+                    ? 'bg-gradient-to-r from-[#FF3D92] to-[#FF2B85] text-white border-[#FF2B85] shadow-md shadow-[#FF2B85]/20'
+                    : 'bg-white/90 text-[#343B46] border-[#E5E7EB] hover:bg-white hover:border-[#343B46] shadow-xs'
                 }`}
               >
-                <span>{cat.icon}</span>
                 <span>{cat.name}</span>
-                <span
-                  className={`px-1.5 py-0.2 rounded-full text-[10px] font-extrabold ${
-                    isActive ? 'bg-white/25 text-white' : 'bg-[#E5E7EB] text-[#343B46]'
-                  }`}
-                >
-                  {cat.count}
-                </span>
               </button>
             );
           })}
@@ -168,7 +155,7 @@ export default function DealsSection({
             ))}
           </div>
         ) : (
-          <div className="text-center py-16 bg-[#F5F5F6] rounded-[12px] border border-[#E5E7EB]">
+          <div className="text-center py-16 custom-card rounded-[12px]">
             <SlidersHorizontal size={40} className="mx-auto text-[#9CA3AF] mb-3" />
             <h3 className="text-lg font-bold text-[#343B46]">No promo codes found</h3>
             <p className="text-xs text-[#9CA3AF] mt-1 max-w-sm mx-auto">
@@ -176,7 +163,7 @@ export default function DealsSection({
             </p>
             <button
               onClick={() => setSelectedCategory('all')}
-              className="mt-4 px-4 py-2 btn-secondary text-xs font-bold"
+              className="mt-4 px-4 py-2 btn-secondary text-xs font-bold shadow-md"
             >
               Reset Filters
             </button>

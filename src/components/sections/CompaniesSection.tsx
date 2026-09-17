@@ -1,7 +1,7 @@
-﻿'use client';
+'use client';
 
 import React from 'react';
-import { Star, ShieldCheck, ArrowRight, Building2, PlusCircle } from 'lucide-react';
+import { Star, ShieldCheck, ArrowRight, PlusCircle } from 'lucide-react';
 import { COMPANIES } from '@/data/mockData';
 
 interface CompaniesSectionProps {
@@ -12,13 +12,9 @@ export default function CompaniesSection({ onOpenSubmitModal }: CompaniesSection
   return (
     <section id="companies" className="py-[120px] bg-[#F5F5F6] border-b border-[#E5E7EB]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Section Header */}
+        {/* Section Header (Badge removed) */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
           <div>
-            <div className="inline-flex items-center gap-1.5 px-3 py-1 bg-white/90 text-[#FF2B85] text-xs font-bold rounded-full mb-3 border border-[#E5E7EB] shadow-xs backdrop-blur-xs">
-              <Building2 size={13} />
-              <span>Hosting Company Directory</span>
-            </div>
             <h2 className="text-3xl sm:text-4xl font-extrabold text-[#343B46] tracking-tight">
               Top Rated Hosting Providers
             </h2>
@@ -61,9 +57,11 @@ export default function CompaniesSection({ onOpenSubmitModal }: CompaniesSection
                       <Star size={15} className="text-[#FFB800] fill-[#FFB800]" />
                       <span>{company.avg_rating.toFixed(1)}</span>
                     </div>
-                    <span className="text-[11px] text-[#9CA3AF]">
-                      {company.review_count.toLocaleString()} reviews
-                    </span>
+                    {company.review_count && (
+                      <span className="text-[11px] text-[#9CA3AF]">
+                        {company.review_count.toLocaleString()} reviews
+                      </span>
+                    )}
                   </div>
                 </div>
 
@@ -72,28 +70,22 @@ export default function CompaniesSection({ onOpenSubmitModal }: CompaniesSection
                   {company.description}
                 </p>
 
-                {/* Sub-ratings Breakdown Progress */}
-                <div className="space-y-2 py-3 border-y border-[#E5E7EB]/80 mb-5">
-                  <div className="flex items-center justify-between text-xs">
-                    <span className="text-[#9CA3AF] font-medium">Uptime & Reliability</span>
-                    <span className="font-bold text-[#343B46]">{company.ratings_breakdown.uptime} / 5</span>
-                  </div>
-                  <div className="w-full h-1.5 bg-[#E5E7EB]/60 rounded-full overflow-hidden">
-                    <div
-                      className="h-full bg-emerald-500 rounded-full"
-                      style={{ width: `${(company.ratings_breakdown.uptime / 5) * 100}%` }}
-                    />
+                {/* Sub-ratings: Uptime & Support side-by-side flexbox */}
+                <div className="flex items-center justify-between gap-4 py-3.5 px-4 bg-white/60 border border-[#E5E7EB]/80 rounded-[12px] mb-5">
+                  <div className="space-y-0.5">
+                    <span className="text-[11px] font-medium text-[#9CA3AF] block">Uptime & Reliability</span>
+                    <span className="text-sm font-extrabold text-emerald-600">
+                      {company.ratings_breakdown.uptime_percentage || '99.9%'}
+                    </span>
                   </div>
 
-                  <div className="flex items-center justify-between text-xs pt-1">
-                    <span className="text-[#9CA3AF] font-medium">Support Quality</span>
-                    <span className="font-bold text-[#343B46]">{company.ratings_breakdown.support} / 5</span>
-                  </div>
-                  <div className="w-full h-1.5 bg-[#E5E7EB]/60 rounded-full overflow-hidden">
-                    <div
-                      className="h-full bg-gradient-to-r from-[#FF3D92] to-[#FF2B85] rounded-full"
-                      style={{ width: `${(company.ratings_breakdown.support / 5) * 100}%` }}
-                    />
+                  <div className="h-8 w-px bg-[#E5E7EB]" />
+
+                  <div className="space-y-0.5 text-right">
+                    <span className="text-[11px] font-medium text-[#9CA3AF] block">Support Quality</span>
+                    <span className="text-sm font-extrabold text-[#343B46]">
+                      {company.ratings_breakdown.support.toFixed(1)} / 5.0
+                    </span>
                   </div>
                 </div>
               </div>
@@ -101,7 +93,7 @@ export default function CompaniesSection({ onOpenSubmitModal }: CompaniesSection
               {/* Bottom Action Strip */}
               <div className="flex items-center justify-between pt-1">
                 <span className="text-xs font-bold text-[#FF2B85] bg-gradient-to-r from-[#FFF0F6] to-[#FFE4EF] border border-[#FF2B85]/20 px-2.5 py-1 rounded-full shadow-xs">
-                  {company.deal_count} Active Deals
+                  {company.deal_count || 0} Active Deals
                 </span>
                 <a
                   href="#deals"

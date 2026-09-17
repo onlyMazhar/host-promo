@@ -1,7 +1,7 @@
-﻿'use client';
+'use client';
 
 import React, { useState } from 'react';
-import { Mail, CheckCircle2, Send, Bell } from 'lucide-react';
+import { Mail, CheckCircle2, Send } from 'lucide-react';
 
 export default function NewsletterSection() {
   const [email, setEmail] = useState('');
@@ -23,11 +23,6 @@ export default function NewsletterSection() {
           <div className="absolute top-0 right-0 w-96 h-96 bg-[#FF2B85]/20 rounded-full blur-3xl pointer-events-none -mr-20 -mt-20" />
 
           <div className="relative z-10 max-w-2xl mx-auto text-center space-y-6">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 bg-white/10 text-white border border-white/15 rounded-full text-xs font-bold">
-              <Bell size={14} className="text-[#FF2B85]" />
-              <span>Never Miss a Flash Sale or 90% OFF Deal</span>
-            </div>
-
             <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
               Get Weekly Hosting Coupon Alerts
             </h2>
