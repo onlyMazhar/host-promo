@@ -1,7 +1,7 @@
-﻿'use client';
+'use client';
 
 import React, { useState } from 'react';
-import { Send, CheckCircle2, X, Tag } from 'lucide-react';
+import { Send, CircleCheck, X, Tag } from '@animateicons/react/lucide';
 import { CATEGORIES } from '@/data/mockData';
 
 interface SubmitDealModalProps {
@@ -54,7 +54,7 @@ export default function SubmitDealModal({ isOpen, onClose }: SubmitDealModalProp
 
         {submitted ? (
           <div className="text-center py-10 space-y-4">
-            <CheckCircle2 size={56} className="text-green-500 mx-auto" />
+            <CircleCheck size={56} className="text-green-500 mx-auto" />
             <h3 className="text-2xl font-bold text-[#343B46]">Deal Submitted!</h3>
             <p className="text-sm text-[#9CA3AF] max-w-sm mx-auto">
               Thank you for your submission. Our editorial team manually verifies all submissions before publishing.
@@ -108,7 +108,7 @@ export default function SubmitDealModal({ isOpen, onClose }: SubmitDealModalProp
                 >
                   {CATEGORIES.filter((c) => c.slug !== 'all').map((cat) => (
                     <option key={cat.id} value={cat.slug}>
-                      {cat.icon} {cat.name}
+                      {cat.name}
                     </option>
                   ))}
                 </select>

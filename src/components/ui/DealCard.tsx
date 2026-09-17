@@ -1,7 +1,7 @@
-﻿'use client';
+'use client';
 
 import React, { useState } from 'react';
-import { Copy, Check, ExternalLink, ShieldCheck, Clock, Flag, Sparkles } from 'lucide-react';
+import { Copy, Check, ExternalLink, ShieldCheck, Clock, Flag, Sparkles } from '@animateicons/react/lucide';
 import confetti from 'canvas-confetti';
 import { Deal } from '@/types';
 import StarRating from './StarRating';

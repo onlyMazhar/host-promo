@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import { Search, ArrowRight } from 'lucide-react';
+import { Search, ArrowRight } from '@animateicons/react/lucide';
 import { CATEGORIES } from '@/data/mockData';
 
 interface HeroSectionProps {

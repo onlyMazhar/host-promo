@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight } from '@animateicons/react/lucide';
 import { COMPARISONS } from '@/data/mockData';
 
 export default function ComparisonSection() {

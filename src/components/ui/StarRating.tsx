@@ -1,7 +1,7 @@
-﻿'use client';
+'use client';
 
 import React from 'react';
-import { Star } from 'lucide-react';
+import { Star } from '@animateicons/react/lucide';
 
 interface StarRatingProps {
   rating: number;

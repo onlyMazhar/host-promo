@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import { Star, ShieldCheck, ArrowRight, PlusCircle } from 'lucide-react';
+import { Star, ShieldCheck, ArrowRight, CirclePlus } from '@animateicons/react/lucide';
 import { COMPANIES } from '@/data/mockData';
 
 interface CompaniesSectionProps {
@@ -27,7 +27,7 @@ export default function CompaniesSection({ onOpenSubmitModal }: CompaniesSection
             onClick={onOpenSubmitModal}
             className="self-start md:self-auto inline-flex items-center gap-1.5 py-3 px-5 btn-primary rounded-[12px] text-xs font-bold shadow-md hover:shadow-md"
           >
-            <PlusCircle size={15} />
+            <CirclePlus size={15} />
             <span>Register Your Company</span>
           </button>
         </div>

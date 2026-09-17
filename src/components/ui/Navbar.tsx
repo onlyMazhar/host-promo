@@ -1,7 +1,7 @@
-﻿'use client';
+'use client';
 
 import React, { useState, useEffect } from 'react';
-import { Tag, Search, PlusCircle, Menu, X } from 'lucide-react';
+import { Tag, Search, CirclePlus, Menu, X } from '@animateicons/react/lucide';
 
 interface NavbarProps {
   onOpenSubmitModal: () => void;
@@ -77,7 +77,7 @@ export default function Navbar({ onOpenSubmitModal, onSearchClick }: NavbarProps
             onClick={onOpenSubmitModal}
             className="flex items-center gap-1.5 py-2.5 px-4 btn-primary text-xs font-bold shadow-md hover:shadow-md"
           >
-            <PlusCircle size={15} />
+            <CirclePlus size={15} />
             <span>Submit Deal</span>
           </button>
         </div>
@@ -89,7 +89,7 @@ export default function Navbar({ onOpenSubmitModal, onSearchClick }: NavbarProps
             className="p-2 text-[#FF2B85] bg-[#FFF0F6] rounded-[12px]"
             title="Submit Deal"
           >
-            <PlusCircle size={20} />
+            <CirclePlus size={20} />
           </button>
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
@@ -140,7 +140,7 @@ export default function Navbar({ onOpenSubmitModal, onSearchClick }: NavbarProps
               }}
               className="w-full flex items-center justify-center gap-2 py-3 btn-primary text-sm font-bold shadow-md"
             >
-              <PlusCircle size={16} />
+              <CirclePlus size={16} />
               <span>Submit a Hosting Deal</span>
             </button>
           </div>

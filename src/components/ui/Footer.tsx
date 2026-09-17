@@ -1,13 +1,13 @@
-﻿'use client';
+'use client';
 
 import React from 'react';
-import { Tag, ShieldCheck, Heart } from 'lucide-react';
+import { Tag, ShieldCheck, Heart } from '@animateicons/react/lucide';
 import { CATEGORIES, COMPANIES } from '@/data/mockData';
 
 export default function Footer() {
   return (
     <footer className="bg-white border-t border-[#E5E7EB] pt-16 pb-12 text-[#9CA3AF]">
-      <div className="max-w-400 mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 pb-12 border-b border-[#E5E7EB]">
           {/* Column 1: Brand Info */}
           <div className="lg:col-span-2 space-y-4">
@@ -100,9 +100,9 @@ export default function Footer() {
             <p className="text-[11px]">
               &copy; {new Date().getFullYear()} HostPromo. All rights reserved.
             </p>
-            <p className="text-[11px] flex items-center gap-1">
+            <div className="text-[11px] flex items-center gap-1">
               Built with <Heart size={12} className="text-[#FF2B85] fill-[#FF2B85]" /> for developers and webmasters.
-            </p>
+            </div>
           </div>
         </div>
       </div>

@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
-import { Mail, CheckCircle2, Send } from 'lucide-react';
+import { Mail, CircleCheck, Send } from '@animateicons/react/lucide';
 
 export default function NewsletterSection() {
   const [email, setEmail] = useState('');
@@ -33,7 +33,7 @@ export default function NewsletterSection() {
 
             {subscribed ? (
               <div className="p-4 bg-white/10 border border-white/20 rounded-[12px] flex items-center justify-center gap-3 text-emerald-400">
-                <CheckCircle2 size={24} />
+                <CircleCheck size={24} />
                 <span className="text-sm font-bold text-white">
                   Thanks for subscribing! Check your inbox for confirmation.
                 </span>

@@ -1,7 +1,7 @@
-﻿'use client';
+'use client';
 
 import React from 'react';
-import { Check, Copy, ExternalLink, X, Sparkles } from 'lucide-react';
+import { Check, Copy, ExternalLink, X, Sparkles } from '@animateicons/react/lucide';
 import { Deal } from '@/types';
 
 interface CopyCodeModalProps {

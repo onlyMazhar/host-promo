@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState, useMemo } from 'react';
-import { Sparkles, Flame, Clock, MousePointerClick, SlidersHorizontal } from 'lucide-react';
+import { Sparkles, Flame, Clock, MousePointerClick, SlidersHorizontal } from '@animateicons/react/lucide';
 import { CATEGORIES, DEALS } from '@/data/mockData';
 import { Deal } from '@/types';
 import DealCard from '@/components/ui/DealCard';

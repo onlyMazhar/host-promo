@@ -1,7 +1,7 @@
-﻿'use client';
+'use client';
 
 import React, { useState } from 'react';
-import { AlertCircle, CheckCircle2, X } from 'lucide-react';
+import { TriangleAlert, CircleCheck, X } from '@animateicons/react/lucide';
 import { Deal } from '@/types';
 
 interface ReportDealModalProps {
@@ -38,7 +38,7 @@ export default function ReportDealModal({ deal, onClose }: ReportDealModalProps)
 
         {submitted ? (
           <div className="text-center py-6 space-y-3">
-            <CheckCircle2 size={48} className="text-green-500 mx-auto" />
+            <CircleCheck size={48} className="text-green-500 mx-auto" />
             <h3 className="text-xl font-bold text-[#343B46]">Report Submitted</h3>
             <p className="text-sm text-[#9CA3AF]">
               Thank you for helping keep HostPromo deals accurate and up-to-date! Our team will inspect this deal immediately.
@@ -47,7 +47,7 @@ export default function ReportDealModal({ deal, onClose }: ReportDealModalProps)
         ) : (
           <form onSubmit={handleSubmit} className="space-y-4">
             <div className="flex items-center gap-2 text-[#FF2B85]">
-              <AlertCircle size={22} />
+              <TriangleAlert size={22} />
               <h3 className="text-lg font-bold text-[#343B46]">Report This Deal</h3>
             </div>
             <p className="text-xs text-[#9CA3AF]">

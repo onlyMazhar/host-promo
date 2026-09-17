@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import { ShieldCheck, Zap, Users } from 'lucide-react';
+import { ShieldCheck, Zap, Users } from '@animateicons/react/lucide';
 
 export default function WhyChooseUsSection() {
   const pillars = [
