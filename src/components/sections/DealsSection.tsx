@@ -25,6 +25,13 @@ export default function DealsSection({
 }: DealsSectionProps) {
   const [activeSort, setActiveSort] = useState<SortType>('popular');
 
+  const sortTabs = [
+    { id: 'popular' as const, label: 'Most Popular', icon: Flame },
+    { id: 'latest' as const, label: 'Latest', icon: Sparkles },
+    { id: 'clicked' as const, label: 'Most Clicked', icon: MousePointerClick },
+    { id: 'expiring' as const, label: 'Expiring Soon', icon: Clock },
+  ];
+
   const filteredDeals = useMemo(() => {
     return DEALS.filter((deal) => {
       // Category filter
@@ -70,55 +77,34 @@ export default function DealsSection({
             </p>
           </div>
 
-          {/* Sort Tabs */}
-          <div className="flex items-center p-1.5 bg-[#F5F5F6] border border-[#E5E7EB] rounded-xl overflow-x-auto shadow-xs">
-            <button
-              onClick={() => setActiveSort('popular')}
-              className={`flex items-center gap-1.5 px-3.5 py-1.5 rounded-[10px] text-xs font-bold transition-all whitespace-nowrap ${
-                activeSort === 'popular'
-                  ? 'bg-white text-[#FF2B85] shadow-sm'
-                  : 'text-[#343B46] hover:text-black'
-              }`}
-            >
-              <Flame size={14} />
-              <span>Most Popular</span>
-            </button>
-
-            <button
-              onClick={() => setActiveSort('latest')}
-              className={`flex items-center gap-1.5 px-3.5 py-1.5 rounded-[10px] text-xs font-bold transition-all whitespace-nowrap ${
-                activeSort === 'latest'
-                  ? 'bg-white text-[#FF2B85] shadow-sm'
-                  : 'text-[#343B46] hover:text-black'
-              }`}
-            >
-              <Sparkles size={14} />
-              <span>Latest</span>
-            </button>
-
-            <button
-              onClick={() => setActiveSort('clicked')}
-              className={`flex items-center gap-1.5 px-3.5 py-1.5 rounded-[10px] text-xs font-bold transition-all whitespace-nowrap ${
-                activeSort === 'clicked'
-                  ? 'bg-white text-[#FF2B85] shadow-sm'
-                  : 'text-[#343B46] hover:text-black'
-              }`}
-            >
-              <MousePointerClick size={14} />
-              <span>Most Clicked</span>
-            </button>
-
-            <button
-              onClick={() => setActiveSort('expiring')}
-              className={`flex items-center gap-1.5 px-3.5 py-1.5 rounded-[10px] text-xs font-bold transition-all whitespace-nowrap ${
-                activeSort === 'expiring'
-                  ? 'bg-white text-[#FF2B85] shadow-sm'
-                  : 'text-[#343B46] hover:text-black'
-              }`}
-            >
-              <Clock size={14} />
-              <span>Expiring Soon</span>
-            </button>
+          {/* Sort Tabs with Text-to-Icon Slide on Hover */}
+          <div className="flex items-center p-1.5 bg-[#F5F5F6] border border-[#E5E7EB] rounded-[12px] overflow-x-auto shadow-xs">
+            {sortTabs.map((tab) => {
+              const Icon = tab.icon;
+              const isActive = activeSort === tab.id;
+              return (
+                <button
+                  key={tab.id}
+                  onClick={() => setActiveSort(tab.id)}
+                  className={`group relative overflow-hidden px-4 py-2 rounded-[10px] text-xs font-bold transition-all whitespace-nowrap ${
+                    isActive
+                      ? 'bg-white text-[#FF2B85] shadow-sm'
+                      : 'text-[#343B46] hover:text-black'
+                  }`}
+                >
+                  <div className="relative h-4 overflow-hidden flex flex-col items-center justify-center min-w-[75px]">
+                    {/* Text initially visible, slides top on hover */}
+                    <span className="block transition-transform duration-300 ease-out group-hover:-translate-y-[150%]">
+                      {tab.label}
+                    </span>
+                    {/* Icon starts below, slides in from bottom on hover */}
+                    <span className="absolute inset-0 flex items-center justify-center translate-y-[150%] transition-transform duration-300 ease-out group-hover:translate-y-0 text-[#FF2B85]">
+                      <Icon size={15} />
+                    </span>
+                  </div>
+                </button>
+              );
+            })}
           </div>
         </div>
 
@@ -130,7 +116,7 @@ export default function DealsSection({
               <button
                 key={cat.id}
                 onClick={() => setSelectedCategory(cat.slug)}
-                className={`flex items-center px-4 py-2.5 rounded-xl text-xs font-bold transition-all whitespace-nowrap border ${
+                className={`flex items-center px-4 py-2.5 rounded-[12px] text-xs font-bold transition-all whitespace-nowrap border ${
                   isActive
                     ? 'bg-gradient-to-r from-[#FF3D92] to-[#FF2B85] text-white border-[#FF2B85] shadow-md shadow-[#FF2B85]/20'
                     : 'bg-white/90 text-[#343B46] border-[#E5E7EB] hover:bg-white hover:border-[#343B46] shadow-xs'
@@ -155,7 +141,7 @@ export default function DealsSection({
             ))}
           </div>
         ) : (
-          <div className="text-center py-16 custom-card rounded-xl">
+          <div className="text-center py-16 custom-card rounded-[12px]">
             <SlidersHorizontal size={40} className="mx-auto text-[#9CA3AF] mb-3" />
             <h3 className="text-lg font-bold text-[#343B46]">No promo codes found</h3>
             <p className="text-xs text-[#9CA3AF] mt-1 max-w-sm mx-auto">
