@@ -1,17 +1,30 @@
 'use client';
 
 import React, { useState } from 'react';
+import { useForm } from 'react-hook-form';
 import { Mail, CircleCheck, Send } from '@animateicons/react/lucide';
+import { Button } from '@/components/ui/button';
+
+interface NewsletterFormData {
+  email: string;
+}
 
 export default function NewsletterSection() {
-  const [email, setEmail] = useState('');
   const [subscribed, setSubscribed] = useState(false);
+  
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors, isSubmitting },
+  } = useForm<NewsletterFormData>();
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (email) {
+  const onSubmit = async (data: NewsletterFormData) => {
+    // Simulate async submission
+    await new Promise((resolve) => setTimeout(resolve, 500));
+    if (data.email) {
       setSubscribed(true);
-      setEmail('');
+      reset();
     }
   };
 
@@ -39,27 +52,39 @@ export default function NewsletterSection() {
                 </span>
               </div>
             ) : (
-              <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto pt-2">
+              <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto pt-2">
                 <div className="relative flex-1">
                   <div className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-[#9CA3AF]">
                     <Mail size={18} />
                   </div>
                   <input
                     type="email"
-                    required
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
+                    {...register('email', {
+                      required: 'Email address is required',
+                      pattern: {
+                        value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+                        message: 'Invalid email address',
+                      },
+                    })}
                     placeholder="Enter your email address..."
-                    className="w-full pl-10 pr-4 py-3.5 bg-white text-[#343B46] rounded-xl text-sm placeholder:text-[#9CA3AF] focus:outline-none focus:ring-2 focus:ring-[#FF2B85]"
+                    className="w-full pl-10 pr-4 py-3 bg-white text-[#343B46] rounded-xl text-sm placeholder:text-[#9CA3AF] focus:outline-none focus:ring-2 focus:ring-[#FF2B85]"
                   />
+                  {errors.email && (
+                    <span className="absolute -bottom-5 left-0 text-[11px] text-rose-300 font-medium">
+                      {errors.email.message}
+                    </span>
+                  )}
                 </div>
-                <button
+                <Button
                   type="submit"
-                  className="flex items-center justify-center gap-2 py-3.5 px-6 btn-primary rounded-xl text-sm font-bold whitespace-nowrap shadow-md hover:shadow-md"
+                  variant="default"
+                  size="default"
+                  disabled={isSubmitting}
+                  className="rounded-xl"
                 >
                   <span>Subscribe</span>
                   <Send size={15} />
-                </button>
+                </Button>
               </form>
             )}
 

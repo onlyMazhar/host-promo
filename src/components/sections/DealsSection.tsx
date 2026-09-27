@@ -5,6 +5,7 @@ import { Sparkles, Flame, Clock, MousePointerClick, SlidersHorizontal } from '@a
 import { CATEGORIES, DEALS } from '@/data/mockData';
 import { Deal } from '@/types';
 import DealCard from '@/components/ui/DealCard';
+import { Button } from '@/components/ui/button';
 
 interface DealsSectionProps {
   searchQuery: string;
@@ -83,13 +84,15 @@ export default function DealsSection({
               const Icon = tab.icon;
               const isActive = activeSort === tab.id;
               return (
-                <button
+                <Button
                   key={tab.id}
+                  variant={isActive ? 'secondary' : 'ghost'}
+                  size="sm"
                   onClick={() => setActiveSort(tab.id)}
                   className={`group relative overflow-hidden px-4 py-2 rounded-[10px] text-xs font-bold transition-all whitespace-nowrap ${
                     isActive
-                      ? 'bg-white text-[#FF2B85] shadow-sm'
-                      : 'text-[#343B46] hover:text-black'
+                      ? 'bg-white text-[#FF2B85] shadow-xs hover:bg-white border-[#E5E7EB]'
+                      : 'text-[#343B46] hover:text-black hover:bg-transparent'
                   }`}
                 >
                   <div className="relative h-4 overflow-hidden flex flex-col items-center justify-center min-w-[75px]">
@@ -102,7 +105,7 @@ export default function DealsSection({
                       <Icon size={15} />
                     </span>
                   </div>
-                </button>
+                </Button>
               );
             })}
           </div>
@@ -113,17 +116,19 @@ export default function DealsSection({
           {CATEGORIES.map((cat) => {
             const isActive = selectedCategory === cat.slug;
             return (
-              <button
+              <Button
                 key={cat.id}
+                variant={isActive ? 'default' : 'secondary'}
+                size="sm"
                 onClick={() => setSelectedCategory(cat.slug)}
-                className={`flex items-center px-4 py-2.5 rounded-[12px] text-xs font-bold transition-all whitespace-nowrap border ${
+                className={`rounded-[12px] text-xs font-bold transition-all whitespace-nowrap ${
                   isActive
-                    ? 'bg-gradient-to-r from-[#FF3D92] to-[#FF2B85] text-white border-[#FF2B85] shadow-md shadow-[#FF2B85]/20'
-                    : 'bg-white/90 text-[#343B46] border-[#E5E7EB] hover:bg-white hover:border-[#343B46] shadow-xs'
+                    ? 'shadow-md shadow-[#FF2B85]/20'
+                    : 'bg-white/90 text-[#343B46] border-[#E5E7EB] hover:bg-white hover:border-[#343B46]'
                 }`}
               >
                 <span>{cat.name}</span>
-              </button>
+              </Button>
             );
           })}
         </div>
@@ -147,12 +152,14 @@ export default function DealsSection({
             <p className="text-xs text-[#9CA3AF] mt-1 max-w-sm mx-auto">
               We could not find any deals matching your query. Try searching for a different keyword or view All Deals.
             </p>
-            <button
+            <Button
+              variant="secondary"
+              size="sm"
               onClick={() => setSelectedCategory('all')}
-              className="mt-4 px-4 py-2 btn-secondary text-xs font-bold shadow-md"
+              className="mt-4 shadow-md"
             >
               Reset Filters
-            </button>
+            </Button>
           </div>
         )}
       </div>

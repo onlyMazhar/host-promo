@@ -3,6 +3,7 @@
 import React from 'react';
 import { Search, ArrowRight } from '@animateicons/react/lucide';
 import { CATEGORIES } from '@/data/mockData';
+import { Button } from '@/components/ui/button';
 
 interface HeroSectionProps {
   searchQuery: string;
@@ -14,7 +15,7 @@ interface HeroSectionProps {
 export default function HeroSection({
   searchQuery,
   setSearchQuery,
-  selectedCategory,
+  selectedCategory: _selectedCategory,
   setSelectedCategory,
 }: HeroSectionProps) {
   return (
@@ -49,20 +50,26 @@ export default function HeroSection({
             />
             <div className="flex-1 flex justify-end">
               {searchQuery ? (
-                <button
+                <Button
+                  variant="ghost"
+                  size="xs"
                   onClick={() => setSearchQuery('')}
-                  className="px-3 py-1 text-xs text-[#9CA3AF] hover:text-[#343B46] font-semibold"
+                  className="text-[#9CA3AF] hover:text-[#343B46]"
                 >
                   Clear
-                </button>
+                </Button>
               ) : (
-                <a
-                  href="#deals"
-                  className="hidden sm:inline-flex items-center gap-1 py-2.5 px-5 btn-primary rounded-xl text-xs font-bold shadow-md hover:shadow-md"
+                <Button
+                  asChild
+                  variant="default"
+                  size="sm"
+                  className="hidden sm:inline-flex items-center gap-1"
                 >
-                  <span>Find Deals</span>
-                  <ArrowRight size={14} />
-                </a>
+                  <a href="#deals">
+                    <span>Find Deals</span>
+                    <ArrowRight size={14} />
+                  </a>
+                </Button>
               )}
             </div>
           </div>
@@ -71,18 +78,20 @@ export default function HeroSection({
           <div className="flex items-center justify-center flex-wrap gap-2 mt-4 text-xs text-[#9CA3AF]">
             <span className="font-semibold text-[#343B46]">Popular:</span>
             {['Web Hosting', 'VPS Server', 'Domain Registration', 'Dedicated Server'].map((tag) => (
-              <button
+              <Button
                 key={tag}
+                variant="secondary"
+                size="xs"
                 onClick={() => {
                   const cat = CATEGORIES.find((c) => c.name === tag);
                   if (cat) setSelectedCategory(cat.slug);
                   const dealsEl = document.getElementById('deals');
                   if (dealsEl) dealsEl.scrollIntoView({ behavior: 'smooth' });
                 }}
-                className="px-3 py-1 bg-white/80 hover:bg-white text-[#343B46] rounded-full transition-all border border-[#E5E7EB] shadow-xs backdrop-blur-xs"
+                className="rounded-full bg-white/80 hover:bg-white text-[#343B46] border-[#E5E7EB]"
               >
                 {tag}
-              </button>
+              </Button>
             ))}
           </div>
         </div>

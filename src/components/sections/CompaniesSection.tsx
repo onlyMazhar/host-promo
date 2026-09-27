@@ -3,6 +3,7 @@
 import React from 'react';
 import { Star, ShieldCheck, ArrowRight, CirclePlus } from '@animateicons/react/lucide';
 import { COMPANIES } from '@/data/mockData';
+import { Button } from '@/components/ui/button';
 
 interface CompaniesSectionProps {
   onOpenSubmitModal: () => void;
@@ -12,7 +13,7 @@ export default function CompaniesSection({ onOpenSubmitModal }: CompaniesSection
   return (
     <section id="companies" className="py-[120px] bg-[#F5F5F6] border-b border-[#E5E7EB]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Section Header (Badge removed) */}
+        {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
           <div>
             <h2 className="text-3xl sm:text-4xl font-extrabold text-[#343B46] tracking-tight">
@@ -23,13 +24,15 @@ export default function CompaniesSection({ onOpenSubmitModal }: CompaniesSection
             </p>
           </div>
 
-          <button
+          <Button
+            variant="default"
+            size="default"
             onClick={onOpenSubmitModal}
-            className="self-start md:self-auto inline-flex items-center gap-1.5 py-3 px-5 btn-primary rounded-xl text-xs font-bold shadow-md hover:shadow-md"
+            className="self-start md:self-auto gap-1.5 shadow-md hover:shadow-md"
           >
             <CirclePlus size={15} />
             <span>Register Your Company</span>
-          </button>
+          </Button>
         </div>
 
         {/* Company Cards Grid */}
@@ -95,13 +98,12 @@ export default function CompaniesSection({ onOpenSubmitModal }: CompaniesSection
                 <span className="text-xs font-bold text-[#FF2B85] bg-gradient-to-r from-[#FFF0F6] to-[#FFE4EF] border border-[#FF2B85]/20 px-2.5 py-1 rounded-full shadow-xs">
                   {company.deal_count || 0} Active Deals
                 </span>
-                <a
-                  href="#deals"
-                  className="inline-flex items-center gap-1 text-xs font-bold text-[#343B46] hover:text-[#FF2B85] transition-colors"
-                >
-                  <span>View Deals & Reviews</span>
-                  <ArrowRight size={13} />
-                </a>
+                <Button asChild variant="ghost" size="xs" className="text-[#343B46] hover:text-[#FF2B85]">
+                  <a href="#deals" className="inline-flex items-center gap-1 font-bold">
+                    <span>View Deals & Reviews</span>
+                    <ArrowRight size={13} />
+                  </a>
+                </Button>
               </div>
             </div>
           ))}
@@ -122,12 +124,14 @@ export default function CompaniesSection({ onOpenSubmitModal }: CompaniesSection
               </p>
             </div>
           </div>
-          <button
+          <Button
+            variant="secondary"
+            size="default"
             onClick={onOpenSubmitModal}
-            className="btn-secondary py-2.5 px-5 text-xs font-bold whitespace-nowrap shadow-md hover:shadow-md"
+            className="whitespace-nowrap shadow-md hover:shadow-md"
           >
             Claim Company Profile
-          </button>
+          </Button>
         </div>
       </div>
     </section>

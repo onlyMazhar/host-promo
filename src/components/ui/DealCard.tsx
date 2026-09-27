@@ -5,6 +5,7 @@ import { Copy, Check, ExternalLink, ShieldCheck, Clock, Flag, Sparkles } from '@
 import confetti from 'canvas-confetti';
 import { Deal } from '@/types';
 import StarRating from './StarRating';
+import { Button } from '@/components/ui/button';
 
 interface DealCardProps {
   deal: Deal;
@@ -108,13 +109,15 @@ export default function DealCard({ deal, onCopyCode, onReportDeal }: DealCardPro
         {/* Buttons Row */}
         <div className="grid grid-cols-2 gap-2.5">
           {deal.promo_code ? (
-            <button
+            <Button
+              variant={copied ? 'default' : 'brandOutline'}
+              size="sm"
               onClick={handleCopy}
-              className={`flex items-center justify-center gap-1.5 py-2.5 px-3 rounded-xl text-xs font-bold transition-all shadow-md active:shadow-xs border ${
+              className={
                 copied
-                  ? 'bg-emerald-600 text-white border-emerald-600'
-                  : 'bg-white/90 hover:bg-white text-[#FF2B85] border-[#FF2B85] shadow-xs'
-              }`}
+                  ? 'bg-emerald-600 hover:bg-emerald-700 text-white border-emerald-600 shadow-xs'
+                  : 'bg-white hover:bg-[#FFF0F6] text-[#FF2B85] border-[#FF2B85]'
+              }
             >
               {copied ? (
                 <>
@@ -127,24 +130,28 @@ export default function DealCard({ deal, onCopyCode, onReportDeal }: DealCardPro
                   <span>Copy Code</span>
                 </>
               )}
-            </button>
+            </Button>
           ) : (
-            <button
+            <Button
+              variant="secondary"
+              size="sm"
               onClick={handleGetDeal}
-              className="flex items-center justify-center gap-1.5 py-2.5 px-3 rounded-xl text-xs font-bold btn-secondary shadow-md hover:shadow-md"
+              className="gap-1.5"
             >
               <Sparkles size={14} className="text-[#FF2B85]" />
               <span>Direct Deal</span>
-            </button>
+            </Button>
           )}
 
-          <button
+          <Button
+            variant="default"
+            size="sm"
             onClick={handleGetDeal}
-            className="flex items-center justify-center gap-1.5 py-2.5 px-3 btn-primary rounded-xl text-xs font-bold shadow-md hover:shadow-md"
+            className="gap-1.5"
           >
             <span>Get Deal</span>
             <ExternalLink size={13} />
-          </button>
+          </Button>
         </div>
 
         {/* Stats & Meta Bottom Strip */}
@@ -154,14 +161,16 @@ export default function DealCard({ deal, onCopyCode, onReportDeal }: DealCardPro
             <span>Verified {deal.last_verified_at}</span>
           </div>
 
-          <button
+          <Button
+            variant="ghost"
+            size="xs"
             onClick={() => onReportDeal(deal)}
-            className="flex items-center gap-1 text-[#9CA3AF] hover:text-[#FF2B85] transition-colors"
+            className="p-0 h-auto gap-1 text-[11px] text-[#9CA3AF] hover:text-[#FF2B85] hover:bg-transparent"
             title="Report if expired or inaccurate"
           >
             <Flag size={11} />
             <span>Report</span>
-          </button>
+          </Button>
         </div>
       </div>
     </div>

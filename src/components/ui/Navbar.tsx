@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { Tag, Search, CirclePlus, Menu, X } from '@animateicons/react/lucide';
+import { Button } from '@/components/ui/button';
 
 interface NavbarProps {
   onOpenSubmitModal: () => void;
@@ -62,41 +63,49 @@ export default function Navbar({ onOpenSubmitModal, onSearchClick }: NavbarProps
 
         {/* Action Controls */}
         <div className="hidden md:flex items-center gap-3.5">
-          <button
+          <Button
+            variant="secondary"
+            size="sm"
             onClick={onSearchClick}
-            className="flex items-center gap-2 px-3.5 py-2 text-xs font-medium text-[#9CA3AF] bg-white/70 hover:bg-white rounded-xl border border-[#E5E7EB] shadow-xs backdrop-blur-sm transition-all"
+            className="flex items-center gap-2 px-3.5 py-2 text-xs font-medium text-[#9CA3AF] bg-white/70 hover:bg-white border-[#E5E7EB] shadow-xs backdrop-blur-sm"
           >
             <Search size={14} className="text-[#343B46]" />
             <span>Search promo codes...</span>
             <kbd className="px-1.5 py-0.5 bg-[#F5F5F6] rounded text-[10px] font-mono border border-[#E5E7EB] text-[#343B46]">
               /
             </kbd>
-          </button>
+          </Button>
 
-          <button
+          <Button
+            variant="default"
+            size="sm"
             onClick={onOpenSubmitModal}
-            className="flex items-center gap-1.5 py-2.5 px-4 btn-primary text-xs font-bold shadow-md hover:shadow-md"
+            className="shadow-md hover:shadow-md"
           >
             <CirclePlus size={15} />
             <span>Submit Deal</span>
-          </button>
+          </Button>
         </div>
 
         {/* Mobile Hamburger */}
         <div className="flex md:hidden items-center gap-2">
-          <button
+          <Button
+            variant="brandGhost"
+            size="icon-sm"
             onClick={onOpenSubmitModal}
-            className="p-2 text-[#FF2B85] bg-[#FFF0F6] rounded-xl"
             title="Submit Deal"
+            className="bg-[#FFF0F6]"
           >
             <CirclePlus size={20} />
-          </button>
-          <button
+          </Button>
+          <Button
+            variant="ghost"
+            size="icon-sm"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="p-2 text-[#343B46] hover:bg-[#F5F5F6] rounded-xl transition-colors"
+            className="text-[#343B46]"
           >
-            {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
+            {mobileMenuOpen ? <X size={22} /> : <Menu size={22} />}
+          </Button>
         </div>
       </div>
 
@@ -133,16 +142,18 @@ export default function Navbar({ onOpenSubmitModal, onSearchClick }: NavbarProps
           </a>
 
           <div className="pt-2">
-            <button
+            <Button
+              variant="default"
+              size="default"
               onClick={() => {
                 setMobileMenuOpen(false);
                 onOpenSubmitModal();
               }}
-              className="w-full flex items-center justify-center gap-2 py-3 btn-primary text-sm font-bold shadow-md"
+              className="w-full flex items-center justify-center gap-2"
             >
               <CirclePlus size={16} />
               <span>Submit a Hosting Deal</span>
-            </button>
+            </Button>
           </div>
         </div>
       )}

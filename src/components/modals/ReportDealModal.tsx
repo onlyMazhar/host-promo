@@ -1,40 +1,66 @@
 'use client';
 
 import React, { useState } from 'react';
+import { useForm } from 'react-hook-form';
 import { TriangleAlert, CircleCheck, X } from '@animateicons/react/lucide';
 import { Deal } from '@/types';
+import { Button } from '@/components/ui/button';
 
 interface ReportDealModalProps {
   deal: Deal | null;
   onClose: () => void;
 }
 
+interface ReportDealFormData {
+  reason: string;
+  comment?: string;
+}
+
 export default function ReportDealModal({ deal, onClose }: ReportDealModalProps) {
-  const [reason, setReason] = useState('expired');
-  const [comment, setComment] = useState('');
   const [submitted, setSubmitted] = useState(false);
+
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { isSubmitting },
+  } = useForm<ReportDealFormData>({
+    defaultValues: {
+      reason: 'expired',
+      comment: '',
+    },
+  });
 
   if (!deal) return null;
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
+  const onSubmit = async (_data: ReportDealFormData) => {
+    // Simulate report submission
+    await new Promise((resolve) => setTimeout(resolve, 400));
     setSubmitted(true);
     setTimeout(() => {
       onClose();
       setSubmitted(false);
+      reset();
     }, 2000);
+  };
+
+  const handleClose = () => {
+    reset();
+    onClose();
   };
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm animate-in fade-in duration-200">
       <div className="relative w-full max-w-md bg-white rounded-xl p-6 shadow-2xl border border-[#E5E7EB]">
-        <button
-          onClick={onClose}
-          className="absolute top-4 right-4 p-2 text-[#9CA3AF] hover:text-[#343B46] hover:bg-[#F5F5F6] rounded-full transition-colors"
+        <Button
+          variant="ghost"
+          size="icon-sm"
+          onClick={handleClose}
+          className="absolute top-4 right-4 rounded-full text-[#9CA3AF] hover:text-[#343B46]"
           aria-label="Close modal"
         >
-          <X size={20} />
-        </button>
+          <X size={18} />
+        </Button>
 
         {submitted ? (
           <div className="text-center py-6 space-y-3">
@@ -45,7 +71,7 @@ export default function ReportDealModal({ deal, onClose }: ReportDealModalProps)
             </p>
           </div>
         ) : (
-          <form onSubmit={handleSubmit} className="space-y-4">
+          <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
             <div className="flex items-center gap-2 text-[#FF2B85]">
               <TriangleAlert size={22} />
               <h3 className="text-lg font-bold text-[#343B46]">Report This Deal</h3>
@@ -57,8 +83,7 @@ export default function ReportDealModal({ deal, onClose }: ReportDealModalProps)
             <div className="space-y-2">
               <label className="block text-xs font-bold text-[#343B46]">Reason for report</label>
               <select
-                value={reason}
-                onChange={(e) => setReason(e.target.value)}
+                {...register('reason', { required: true })}
                 className="w-full p-2.5 bg-[#F5F5F6] border border-[#E5E7EB] rounded-xl text-sm text-[#343B46] focus:outline-none focus:border-[#FF2B85]"
               >
                 <option value="expired">Coupon or deal has expired</option>
@@ -74,27 +99,31 @@ export default function ReportDealModal({ deal, onClose }: ReportDealModalProps)
               </label>
               <textarea
                 rows={3}
-                value={comment}
-                onChange={(e) => setComment(e.target.value)}
+                {...register('comment')}
                 placeholder="Briefly describe the issue..."
                 className="w-full p-2.5 bg-[#F5F5F6] border border-[#E5E7EB] rounded-xl text-sm text-[#343B46] placeholder:text-[#9CA3AF] focus:outline-none focus:border-[#FF2B85]"
               />
             </div>
 
             <div className="flex gap-3 pt-2">
-              <button
+              <Button
                 type="button"
-                onClick={onClose}
-                className="flex-1 py-2.5 px-4 btn-secondary text-sm"
+                variant="secondary"
+                size="default"
+                onClick={handleClose}
+                className="flex-1"
               >
                 Cancel
-              </button>
-              <button
+              </Button>
+              <Button
                 type="submit"
-                className="flex-1 py-2.5 px-4 btn-primary text-sm shadow-md"
+                variant="default"
+                size="default"
+                disabled={isSubmitting}
+                className="flex-1"
               >
                 Send Report
-              </button>
+              </Button>
             </div>
           </form>
         )}
